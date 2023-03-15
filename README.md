@@ -1,4 +1,5 @@
 # ESSENTIALS FOR LARAVEL STARTUP
+---------------------------------
 
 In this path will look into the basic requirments which are required for a web developer to start as laravel developer
 
