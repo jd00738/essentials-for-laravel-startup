@@ -132,6 +132,10 @@ Some of the commonly used `artisan make` commands include:
 
 ## Migrations
 
+[Migration Official Documentation](https://laravel.com/docs/10.x/migrations#main-content)
+
+### Key Points
+
 - Migrations are the blueprints of the tables of our app
 
 - Instead of creating tables manually, we can use migrations to do it for us
@@ -208,5 +212,38 @@ it will generate `remember_token` column, typically used to store a token that c
 #### $table->timestamps();
 
 it will genereate `dateInserted` and `dateUpdated` columns in the database
+
+## Createing New Migration
+
+when ever it's required to add a new columnn a new migration will be added using the `make` command of artisan i,e.
+
+    php artisan make:migration create_my_table
+
+now the naming convention matters allot it will create a new migration with the name of `create_my_table` having the current timestamp as prefix in it where 'my' will be setted as the name of the table
+
+follwoing properties are settled in the up function of newly created migration
+
+        public function up()
+    {
+        Schema::create('my', function (Blueprint $table) {
+            $table->string("title");
+            $table->string("description");
+            $table->timestamps();
+        });
+    }
+
+after running migration table `my` will be creted having following columns i.e. `title, description, created_at, updated_at` in it
+
+### Rollback Migrations
+
+while wrting the migration if any atribute or related field is missed we can roll back migration and again create the new migration, below is the command which will roll back the migration done by the user
+
+    php artisan migrate:rollback
+
+and after that will again call
+
+    php artisan migrate
+
+the track of migration is based on the batch the migration run first time will have batch 1 in the table while the new migrations will have batch 2 and when `rollback` command is called will only effect the batch 2 `migration`
 
 
