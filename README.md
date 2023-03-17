@@ -149,3 +149,64 @@ migration is init by the help of artisan, get to the project directory, and run 
     php artisan migrate
 
 one the command is been executed it laravel will generate some default tables in the DB
+
+migrations files will also be created in the app, which can be access by searching or can be found at database->migrations folder
+
+these files contains the core structure of the tables, these files are contins `table` realted Classess with 2 functions `up & down`.
+
+Below is the script for those functions `up` functions creates the blueprint of the table where `down` function used to drop the table
+
+       public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+
+in functions `Schema` static function are used to handle the table in `up` we se `Schema::creat()` functionality which take arguments i.e. `newTableName` and `Blueprint` for that table
+
+## Blueprint table
+
+this is helping in the setting up the table properties as well as there datatypes
+
+#### table->id();
+
+it will genereate the `int` based ID column with primaryKey constraint in the DB
+
+#### $table->string('name');
+
+it will generate `string|varchar` based `name` column in the DB
+
+#### $table->string('email')->unique();
+
+it will generate `string|varchar` based `email` column with unique constraint in the DB
+
+#### $table->timestamp('email_verified_at')->nullable();
+
+it will generate `DateTime` based `email_verified_at` column with nullable properties in the DB
+
+#### $table->rememberToken();
+
+it will generate `remember_token` column, typically used to store a token that can be used to "remember" a user's authentication session.
+
+#### $table->timestamps();
+
+it will genereate `dateInserted` and `dateUpdated` columns in the database
+
+
