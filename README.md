@@ -246,4 +246,44 @@ and after that will again call
 
 the track of migration is based on the batch the migration run first time will have batch 1 in the table while the new migrations will have batch 2 and when `rollback` command is called will only effect the batch 2 `migration`
 
+## Elequent Model
 
+- ORM stands for Object Relational Mapping
+- It allows to access tables through code using the table object
+- Each table is represented by `Model` class
+
+below command will help in creating the model using artisan
+
+    php artisan make:model my
+
+the newly created model can be found at `app->Models->my.php`
+
+### tinker
+
+to test the the model and it's working will open tinker by using the below command
+
+    php artisan tinker
+
+This will open up a REPL (Read-Eval-Print Loop) shell where you can interactively test and manipulate your application's models and data
+
+run the following commands to interect with the models
+
+> $my = new App\Models\my
+>
+> = App\Models\my {#3610}
+>
+> $my->title="test"
+>
+> = "test"
+> $my->description="Why"
+>
+> = "Why"
+>
+> $my
+>
+> = App\Models\my {#3610
+> title: "test",
+> description: "Why",
+> }
+>
+> $my->save()
