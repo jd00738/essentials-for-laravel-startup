@@ -1,5 +1,6 @@
 # ESSENTIALS FOR LARAVEL STARTUP
----------------------------------
+
+---
 
 In this path will look into the basic requirments which are required for a web developer to start as laravel developer
 
@@ -128,3 +129,23 @@ Some of the commonly used `artisan make` commands include:
 - `make:middleware`: Generates a new middleware class.
 - `make:seeder`: Generates a new database seeder class.
 - `make:factory`: Generates a new model factory class.
+
+## Migrations
+
+- Migrations are the blueprints of the tables of our app
+
+- Instead of creating tables manually, we can use migrations to do it for us
+
+- With migrations, there's no duplication of effort
+
+- Additionally, it can be done easily from the terminal of the IDE
+
+## NOTE:
+
+`before running migration .env file is required to be updated with the DB connection`
+
+migration is init by the help of artisan, get to the project directory, and run below command in the terminal.
+
+    php artisan migrate
+
+one the command is been executed it laravel will generate some default tables in the DB
