@@ -251,12 +251,15 @@ the track of migration is based on the batch the migration run first time will h
 - ORM stands for Object Relational Mapping
 - It allows to access tables through code using the table object
 - Each table is represented by `Model` class
+- Provides methods to interact with that table
+- Typically includes properties that map to table columns
+- Contain methods for performing CRUD operations (create, read, update, delete) on those columns
 
 below command will help in creating the model using artisan
 
-    php artisan make:model my
+    php artisan make:model My
 
-the newly created model can be found at `app->Models->my.php`
+the newly created model can be found at `app->Models->My.php`
 
 ### tinker
 
@@ -287,3 +290,7 @@ run the following commands to interect with the models
 > }
 >
 > $my->save()
+
+### Models
+
+A model in Laravel is a PHP class that represents a database table and provides methods to interact with that table. It typically includes properties that map to table columns and methods for performing CRUD operations (create, read, update, delete) on those columns.
