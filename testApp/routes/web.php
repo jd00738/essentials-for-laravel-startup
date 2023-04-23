@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mine/{my}', [MineController::class, "show"]);
+Route::resource("mine",MineController::class);
