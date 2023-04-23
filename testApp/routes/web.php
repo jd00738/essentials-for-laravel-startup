@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MineController;
 use App\Models\My;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    $note = My::first();
-    return $note;
+    return view('welcome');
 });
+
+Route::get('/mine/{my}', [MineController::class, "show"]);
