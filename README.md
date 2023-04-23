@@ -294,3 +294,24 @@ run the following commands to interect with the models
 ### Models
 
 A model in Laravel is a PHP class that represents a database table and provides methods to interact with that table. It typically includes properties that map to table columns and methods for performing CRUD operations (create, read, update, delete) on those columns.
+
+### Resource
+
+- All `Models` in our APP can be taken as `Resource`
+
+- The `C.R.U.D` operations are perform on `Models`
+
+### Resource Controller
+
+The most common/efficient way of performing those operations on `Models` is by `Resource Controller`
+
+Resource Controller can be created by
+
+        php artisan make:controller CONTROLLER_NAME --resource
+
+we can also add an additional argument for connection it with the `Model`
+
+        model: --model=MODEL_NAME#
+
+_By of creating resource controller will create all the boilerCode required for the `C.R.U.D` operations with related `Model`_
+
