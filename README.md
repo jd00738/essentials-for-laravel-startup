@@ -315,3 +315,18 @@ we can also add an additional argument for connection it with the `Model`
 
 _By of creating resource controller will create all the boilerCode required for the `C.R.U.D` operations with related `Model`_
 
+### Route Model Binding
+
+- ID provided in the url can autmotically interpreted as the related model ID
+
+- To make it work the id in the route must be name after the related model else it will be failed to give related response
+
+### Resource Route
+
+- Resource route help us in defining all the possible route according to the resource
+
+        Route::resource("notes".NotesController::class)
+
+- To look all the possible routes, it will show all the list of the routes present in the application
+
+        php artisan route:list
